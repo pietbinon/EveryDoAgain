@@ -90,6 +90,7 @@
     Event *event = [self.fetchedResultsController objectAtIndexPath:indexPath];
     [self configureCell:cell withEvent:event];
     return cell;
+    
 }
 
 
