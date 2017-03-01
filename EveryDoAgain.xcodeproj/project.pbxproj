@@ -15,6 +15,7 @@
 		DAFA25111E6751D700C87CE4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DAFA250F1E6751D700C87CE4 /* Main.storyboard */; };
 		DAFA25131E6751D700C87CE4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DAFA25121E6751D700C87CE4 /* Assets.xcassets */; };
 		DAFA25161E6751D700C87CE4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DAFA25141E6751D700C87CE4 /* LaunchScreen.storyboard */; };
+		DAFA251F1E675FF300C87CE4 /* AddNewTaskViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DAFA251E1E675FF300C87CE4 /* AddNewTaskViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +32,8 @@
 		DAFA25121E6751D700C87CE4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DAFA25151E6751D700C87CE4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DAFA25171E6751D700C87CE4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DAFA251D1E675FF300C87CE4 /* AddNewTaskViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddNewTaskViewController.h; sourceTree = "<group>"; };
+		DAFA251E1E675FF300C87CE4 /* AddNewTaskViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddNewTaskViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +78,8 @@
 				DAFA25171E6751D700C87CE4 /* Info.plist */,
 				DAFA25061E6751D700C87CE4 /* EveryDoAgain.xcdatamodeld */,
 				DAFA25001E6751D700C87CE4 /* Supporting Files */,
+				DAFA251D1E675FF300C87CE4 /* AddNewTaskViewController.h */,
+				DAFA251E1E675FF300C87CE4 /* AddNewTaskViewController.m */,
 			);
 			path = EveryDoAgain;
 			sourceTree = "<group>";
@@ -163,6 +168,7 @@
 				DAFA250B1E6751D700C87CE4 /* MasterViewController.m in Sources */,
 				DAFA25081E6751D700C87CE4 /* EveryDoAgain.xcdatamodeld in Sources */,
 				DAFA25051E6751D700C87CE4 /* AppDelegate.m in Sources */,
+				DAFA251F1E675FF300C87CE4 /* AddNewTaskViewController.m in Sources */,
 				DAFA25021E6751D700C87CE4 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
