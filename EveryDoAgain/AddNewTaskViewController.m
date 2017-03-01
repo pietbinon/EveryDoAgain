@@ -9,5 +9,15 @@
 #import "AddNewTaskViewController.h"
 
 @implementation AddNewTaskViewController
+- (IBAction)todoTitle:(id)sender {
+}
+- (IBAction)todoDescription:(id)sender {
+}
+- (IBAction)todoPriority:(id)sender {
+}
+- (IBAction)addNewTaskButtonTapped:(id)sender {
+    
+    
+}
 
 @end
