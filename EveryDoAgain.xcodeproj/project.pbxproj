@@ -16,8 +16,6 @@
 		DAFA25131E6751D700C87CE4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DAFA25121E6751D700C87CE4 /* Assets.xcassets */; };
 		DAFA25161E6751D700C87CE4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DAFA25141E6751D700C87CE4 /* LaunchScreen.storyboard */; };
 		DAFA251F1E675FF300C87CE4 /* AddNewTaskViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DAFA251E1E675FF300C87CE4 /* AddNewTaskViewController.m */; };
-		DAFA253C1E67722800C87CE4 /* Todo+CoreDataClass.m in Sources */ = {isa = PBXBuildFile; fileRef = DAFA25391E67722800C87CE4 /* Todo+CoreDataClass.m */; };
-		DAFA253D1E67722800C87CE4 /* Todo+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = DAFA253B1E67722800C87CE4 /* Todo+CoreDataProperties.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,10 +34,6 @@
 		DAFA25171E6751D700C87CE4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DAFA251D1E675FF300C87CE4 /* AddNewTaskViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddNewTaskViewController.h; sourceTree = "<group>"; };
 		DAFA251E1E675FF300C87CE4 /* AddNewTaskViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddNewTaskViewController.m; sourceTree = "<group>"; };
-		DAFA25381E67722800C87CE4 /* Todo+CoreDataClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Todo+CoreDataClass.h"; sourceTree = "<group>"; };
-		DAFA25391E67722800C87CE4 /* Todo+CoreDataClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Todo+CoreDataClass.m"; sourceTree = "<group>"; };
-		DAFA253A1E67722800C87CE4 /* Todo+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Todo+CoreDataProperties.h"; sourceTree = "<group>"; };
-		DAFA253B1E67722800C87CE4 /* Todo+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Todo+CoreDataProperties.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,10 +66,6 @@
 		DAFA24FF1E6751D700C87CE4 /* EveryDoAgain */ = {
 			isa = PBXGroup;
 			children = (
-				DAFA25381E67722800C87CE4 /* Todo+CoreDataClass.h */,
-				DAFA25391E67722800C87CE4 /* Todo+CoreDataClass.m */,
-				DAFA253A1E67722800C87CE4 /* Todo+CoreDataProperties.h */,
-				DAFA253B1E67722800C87CE4 /* Todo+CoreDataProperties.m */,
 				DAFA25031E6751D700C87CE4 /* AppDelegate.h */,
 				DAFA25041E6751D700C87CE4 /* AppDelegate.m */,
 				DAFA25091E6751D700C87CE4 /* MasterViewController.h */,
@@ -177,9 +167,7 @@
 				DAFA250E1E6751D700C87CE4 /* DetailViewController.m in Sources */,
 				DAFA250B1E6751D700C87CE4 /* MasterViewController.m in Sources */,
 				DAFA25081E6751D700C87CE4 /* EveryDoAgain.xcdatamodeld in Sources */,
-				DAFA253C1E67722800C87CE4 /* Todo+CoreDataClass.m in Sources */,
 				DAFA25051E6751D700C87CE4 /* AppDelegate.m in Sources */,
-				DAFA253D1E67722800C87CE4 /* Todo+CoreDataProperties.m in Sources */,
 				DAFA251F1E675FF300C87CE4 /* AddNewTaskViewController.m in Sources */,
 				DAFA25021E6751D700C87CE4 /* main.m in Sources */,
 			);
@@ -340,6 +328,7 @@
 				DAFA251C1E6751D700C87CE4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

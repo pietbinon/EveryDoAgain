@@ -1,6 +1,6 @@
 //
 //  MasterViewController.m
-//  EveryDoAgain
+//  EveryDoItAgain
 //
 //  Created by Hyung Jip Moon on 2017-03-01.
 //  Copyright © 2017 leomoon. All rights reserved.
@@ -17,59 +17,36 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
     // Do any additional setup after loading the view, typically from a nib.
     self.navigationItem.leftBarButtonItem = self.editButtonItem;
-
+    
     UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(insertNewObject:)];
     self.navigationItem.rightBarButtonItem = addButton;
     self.detailViewController = (DetailViewController *)[[self.splitViewController.viewControllers lastObject] topViewController];
 }
-
 
 - (void)viewWillAppear:(BOOL)animated {
     self.clearsSelectionOnViewWillAppear = self.splitViewController.isCollapsed;
     [super viewWillAppear:animated];
 }
 
-
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
 
-
 - (void)insertNewObject:(id)sender {
-    
-    [self performSegueWithIdentifier:@"goToAddNewTask" sender:sender];
-//    NSManagedObjectContext *context = [self.fetchedResultsController managedObjectContext];
-//    
-//    NSEntityDescription *entity = [[self.fetchedResultsController fetchRequest] entity];
-//    Todo *newTodo = [NSEntityDescription insertNewObjectForEntityForName:[entity name] inManagedObjectContext:context ];
-    
-    
-    
-    
-//    NSManagedObjectContext *context = [self.fetchedResultsController managedObjectContext];
-//    Event *newEvent = [[Event alloc] initWithContext:context];
-//        
-//    // If appropriate, configure the new managed object.
-//    newEvent.timestamp = [NSDate date];
-//        
-//    // Save the context.
-//    NSError *error = nil;
-//    if (![context save:&error]) {
-//        // Replace this implementation with code to handle the error appropriately.
-//        // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-//        NSLog(@"Unresolved error %@, %@", error, error.userInfo);
-//        abort();
-//    }
-}
 
+    [self performSegueWithIdentifier:@"goToAddNewTask" sender:sender];
+}
 
 #pragma mark - Segues
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    
     if ([[segue identifier] isEqualToString:@"showDetail"]) {
+        
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
         NSManagedObject *object = [self.fetchedResultsController objectAtIndexPath:indexPath];
         DetailViewController *controller = (DetailViewController *)[[segue destinationViewController] topViewController];
@@ -77,19 +54,12 @@
         controller.navigationItem.leftBarButtonItem = self.splitViewController.displayModeButtonItem;
         controller.navigationItem.leftItemsSupplementBackButton = YES;
         
-    }else if ([[segue identifier] isEqualToString:@"goToAddNewTask"]) {
-//        NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
-//        
-//        NSEntityDescription *entity = [NSEntityDescription entityForName:@"Todo" inManagedObjectContext:self.managedObjectContext];
-//        AddNewTaskViewController *addNewTaskVC = [[AddNewTaskViewController alloc] init];
-//        [addNewTaskVC manageObjectContext] =
-//        managedObjectContext
-//        [fetchRequest setEntity:entity];
-//        [AddNewTaskViewController setManagedObjectContext:[self managedObjectContext]];
-        
+    }
+    
+    else if ([[segue identifier] isEqualToString:@"goToAddNewTask"]) {
+        // Send managedObjectContext to Add New Task ViewController
         AddNewTaskViewController *vc = [segue destinationViewController];
         vc.managedObjectContext = self.managedObjectContext;
-
     }
 }
 
@@ -97,21 +67,29 @@
 #pragma mark - Table View
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    
     return [[self.fetchedResultsController sections] count];
 }
 
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    
     id <NSFetchedResultsSectionInfo> sectionInfo = [self.fetchedResultsController sections][section];
     return [sectionInfo numberOfObjects];
 }
 
+- (void)configureCell:(UITableViewCell *)cell withToDoItem:(Todo *)newTodo {
+    
+    cell.textLabel.text = newTodo.todoTitle;
+}
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
-    [self configureCell:cell atIndexPath:indexPath];
-    return cell;
     
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
+    Todo *newTodo = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    [self configureCell:cell withToDoItem:newTodo];
+    
+    return cell;
 }
 
 
@@ -120,21 +98,14 @@
     return YES;
 }
 
-
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         NSManagedObjectContext *context = [self.fetchedResultsController managedObjectContext];
         [context deleteObject:[self.fetchedResultsController objectAtIndexPath:indexPath]];
-            
-        NSError *error = nil;
-        if (![context save:&error]) {
-            // Replace this implementation with code to handle the error appropriately.
-            // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-            NSLog(@"Unresolved error %@, %@", error, error.userInfo);
-            abort();
-        }
     }
 }
+
 
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath {
     
@@ -143,55 +114,47 @@
     cell.detailTextLabel.text = todo.todoPriorityNumber;
 }
 
-
-- (NSFetchedResultsController *)fetchedResultsController
-{
+- (NSFetchedResultsController *)fetchedResultsController {
+    
     if (_fetchedResultsController != nil) {
         return _fetchedResultsController;
     }
     
-    //NSFetchRequest<Event *> *fetchRequest = Event.fetchRequest;
-    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
     
-        NSEntityDescription *entity = [NSEntityDescription entityForName:@"Todo" inManagedObjectContext:self.managedObjectContext];
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"Todo"];
+    
+    [fetchRequest setSortDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"todoTitle" ascending:YES]]];
+    
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Todo" inManagedObjectContext:self.managedObjectContext];
     
     [fetchRequest setEntity:entity];
 
-    // Set the batch size to a suitable number.
-    [fetchRequest setFetchBatchSize:20];
-    
-    // Edit the sort key as appropriate.
-    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"timestamp" ascending:NO];
-
-    [fetchRequest setSortDescriptors:@[sortDescriptor]];
     
     // Edit the section name key path and cache name if appropriate.
     // nil for section name key path means "no sections".
     NSFetchedResultsController *aFetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:self.managedObjectContext sectionNameKeyPath:nil cacheName:@"Master"];
+    
     aFetchedResultsController.delegate = self;
-
-//    
-//    NSError *error = nil;
-//
-//    if ([self.fetchedResultsController performFetch:&error]) {
-//        // Replace this implementation with code to handle the error appropriately.
-//        // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-//        NSLog(@"Unresolved error %@, %@", error, error.userInfo);
-//        abort();
-//    }
+    
+    NSError *error = nil;
+    if (![aFetchedResultsController performFetch:&error]) {
+        
+        NSLog(@"Unresolved error %@, %@", error, error.userInfo);
+        abort();
+    }
+    
     self.fetchedResultsController = aFetchedResultsController;
 
-    return _fetchedResultsController;
+    return self.fetchedResultsController;
 }
 
-- (void)controllerWillChangeContent:(NSFetchedResultsController *)controller
-{
+- (void)controllerWillChangeContent:(NSFetchedResultsController *)controller {
     [self.tableView beginUpdates];
 }
 
 - (void)controller:(NSFetchedResultsController *)controller didChangeSection:(id <NSFetchedResultsSectionInfo>)sectionInfo
-           atIndex:(NSUInteger)sectionIndex forChangeType:(NSFetchedResultsChangeType)type
-{
+           atIndex:(NSUInteger)sectionIndex forChangeType:(NSFetchedResultsChangeType)type {
+    
     switch(type) {
         case NSFetchedResultsChangeInsert:
             [self.tableView insertSections:[NSIndexSet indexSetWithIndex:sectionIndex] withRowAnimation:UITableViewRowAnimationFade];
@@ -208,8 +171,8 @@
 
 - (void)controller:(NSFetchedResultsController *)controller didChangeObject:(id)anObject
        atIndexPath:(NSIndexPath *)indexPath forChangeType:(NSFetchedResultsChangeType)type
-      newIndexPath:(NSIndexPath *)newIndexPath
-{
+      newIndexPath:(NSIndexPath *)newIndexPath {
+    
     UITableView *tableView = self.tableView;
     
     switch(type) {
@@ -231,20 +194,9 @@
     }
 }
 
-- (void)controllerDidChangeContent:(NSFetchedResultsController *)controller
-{
+- (void)controllerDidChangeContent:(NSFetchedResultsController *)controller {
+    
     [self.tableView endUpdates];
 }
-
-
-/*
-// Implementing the above methods to update the table view in response to individual changes may have performance implications if a large number of changes are made simultaneously. If this proves to be an issue, you can instead just implement controllerDidChangeContent: which notifies the delegate that all section and object changes have been processed. 
- 
- - (void)controllerDidChangeContent:(NSFetchedResultsController *)controller
-{
-    // In the simplest, most efficient, case, reload the table view.
-    [self.tableView reloadData];
-}
- */
 
 @end

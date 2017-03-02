@@ -1,6 +1,6 @@
 //
 //  AddNewTaskViewController.m
-//  EveryDoAgain
+//  EveryDoItAgain
 //
 //  Created by Hyung Jip Moon on 2017-03-01.
 //  Copyright © 2017 leomoon. All rights reserved.
@@ -10,33 +10,25 @@
 
 @implementation AddNewTaskViewController
 
-
-
 - (IBAction)addNewTaskButtonTapped:(id)sender {
-
-//    MasterViewController *masterVC = [[MasterViewController alloc] init];
-//    NSManagedObjectContext *context = [masterVC.fetchedResultsController managedObjectContext];
-    Todo *newTodo = [NSEntityDescription insertNewObjectForEntityForName:@"Todo" inManagedObjectContext:self.managedObjectContext];
-
-    //Todo *newTodo = [[Todo alloc] initWithContext:newTodo.managedObjectContext];
     
-
-    NSLog(@"%@",newTodo);
-    NSLog(@"%@",newTodo.todoTitle);
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Todo" inManagedObjectContext:self.managedObjectContext];
+    NSManagedObject *newTodo = [[NSManagedObject alloc] initWithEntity:entity insertIntoManagedObjectContext:self.managedObjectContext];
     
-    newTodo.todoTitle = self.titleTextfield.text;
-    newTodo.todoDescription = self.descriptionTextField.text;
-    newTodo.todoPriorityNumber = self.priorityTextField.text;
+//  Todo *newTodo = [NSEntityDescription insertNewObjectForEntityForName:@"Todo" inManagedObjectContext:self.managedObjectContext];
 
+//    newTodo.todoTitle = self.titleTextfield.text;
+//    newTodo.todoDescription = self.descriptionTextField.text;
+//    newTodo.todoPriorityNumber = self.priorityTextField.text;
 
-    
+    [newTodo setValue:self.titleTextfield.text forKey:@"todoTitle"];
+    [newTodo setValue:self.descriptionTextField.text forKey:@"todoDescription"];
+    [newTodo setValue:self.priorityTextField.text forKey:@"todoPriorityNumber"];
+
     [self.managedObjectContext save:nil];
     
     //dismiss the view controller
-    [self.navigationController popViewControllerAnimated:YES];
+    [self.navigationController popToRootViewControllerAnimated:YES];
 }
-
-
-
 
 @end

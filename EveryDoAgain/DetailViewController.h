@@ -1,6 +1,6 @@
 //
 //  DetailViewController.h
-//  EveryDoAgain
+//  EveryDoItAgain
 //
 //  Created by Hyung Jip Moon on 2017-03-01.
 //  Copyright © 2017 leomoon. All rights reserved.

@@ -1,6 +1,6 @@
 //
 //  DetailViewController.m
-//  EveryDoAgain
+//  EveryDoItAgain
 //
 //  Created by Hyung Jip Moon on 2017-03-01.
 //  Copyright © 2017 leomoon. All rights reserved.
@@ -18,11 +18,9 @@
     // Update the user interface for the detail item.
     if (self.detailItem) {
         self.detailDescriptionLabel.text = [[self.detailItem valueForKey:@"todoTitle"] description];
-
-//        self.detailDescriptionLabel.text = self.detailItem.timestamp.description;
+    
     }
 }
-
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -30,12 +28,10 @@
     [self configureView];
 }
 
-
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
 
 #pragma mark - Managing the detail item
 
