@@ -21,6 +21,8 @@
     //Todo *newTodo = [[Todo alloc] initWithContext:newTodo.managedObjectContext];
     
 
+    NSLog(@"%@",newTodo);
+    NSLog(@"%@",newTodo.todoTitle);
     
     newTodo.todoTitle = self.titleTextfield.text;
     newTodo.todoDescription = self.descriptionTextField.text;
