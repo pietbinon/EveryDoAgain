@@ -80,19 +80,13 @@
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
-                                <connections>
-                                    <action selector="todoTitle:" destination="wIV-Ze-l8y" eventType="editingDidEnd" id="JEG-3M-aps"/>
-                                </connections>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jAE-on-1hK">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" borderStyle="line" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jAE-on-1hK">
                                 <rect key="frame" x="87" y="184" width="200" height="100"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
-                                <connections>
-                                    <action selector="todoDescription:" destination="wIV-Ze-l8y" eventType="editingDidEnd" id="quk-ah-Uub"/>
-                                </connections>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ufh-YT-w7T">
                                 <rect key="frame" x="143" y="155" width="88" height="21"/>
@@ -126,6 +120,13 @@
                                     <action selector="addNewTaskButtonTapped:" destination="wIV-Ze-l8y" eventType="touchUpInside" id="wvT-Us-3ev"/>
                                 </connections>
                             </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="adl-u4-meo">
+                                <rect key="frame" x="145" y="321" width="97" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="phonePad"/>
+                            </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Priority" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wLb-Yn-1WB">
                                 <rect key="frame" x="166" y="292" width="55" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -139,6 +140,11 @@
                     <navigationItem key="navigationItem" title="Add New Task" id="fsA-Uo-RCE">
                         <barButtonItem key="backBarButtonItem" id="wUP-wO-T7h"/>
                     </navigationItem>
+                    <connections>
+                        <outlet property="descriptionTextField" destination="jAE-on-1hK" id="oLP-Ju-Y8a"/>
+                        <outlet property="priorityTextField" destination="l6G-va-S8g" id="mlv-AU-HYZ"/>
+                        <outlet property="titleTextfield" destination="ONt-Tv-M7G" id="EgM-Tv-jQi"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ER7-vX-IIZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

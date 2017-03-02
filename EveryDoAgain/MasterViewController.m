@@ -39,8 +39,16 @@
 
 
 - (void)insertNewObject:(id)sender {
+    
     [self performSegueWithIdentifier:@"goToAddNewTask" sender:sender];
-
+//    NSManagedObjectContext *context = [self.fetchedResultsController managedObjectContext];
+//    
+//    NSEntityDescription *entity = [[self.fetchedResultsController fetchRequest] entity];
+//    Todo *newTodo = [NSEntityDescription insertNewObjectForEntityForName:[entity name] inManagedObjectContext:context ];
+    
+    
+    
+    
 //    NSManagedObjectContext *context = [self.fetchedResultsController managedObjectContext];
 //    Event *newEvent = [[Event alloc] initWithContext:context];
 //        
@@ -68,6 +76,20 @@
         [controller setDetailItem:object];
         controller.navigationItem.leftBarButtonItem = self.splitViewController.displayModeButtonItem;
         controller.navigationItem.leftItemsSupplementBackButton = YES;
+        
+    }else if ([[segue identifier] isEqualToString:@"goToAddNewTask"]) {
+//        NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+//        
+//        NSEntityDescription *entity = [NSEntityDescription entityForName:@"Todo" inManagedObjectContext:self.managedObjectContext];
+//        AddNewTaskViewController *addNewTaskVC = [[AddNewTaskViewController alloc] init];
+//        [addNewTaskVC manageObjectContext] =
+//        managedObjectContext
+//        [fetchRequest setEntity:entity];
+//        [AddNewTaskViewController setManagedObjectContext:[self managedObjectContext]];
+        
+        AddNewTaskViewController *vc = [segue destinationViewController];
+        vc.managedObjectContext = self.managedObjectContext;
+
     }
 }
 
