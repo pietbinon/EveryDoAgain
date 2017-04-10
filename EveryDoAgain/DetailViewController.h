@@ -2,11 +2,13 @@
 //  DetailViewController.h
 //  EveryDoItAgain
 //
-//  Created by Hyung Jip Moon on 2017-03-01.
-//  Copyright © 2017 leomoon. All rights reserved.
+//  Created by Pierre Binon on 2017-03-29.
+//  Copyright © 2017 Pierre Binon. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
+
+
 
 @interface DetailViewController : UIViewController
 

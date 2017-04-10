@@ -19,6 +19,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7751AC8E1E8C53170032189A /* Todo+CoreDataClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Todo+CoreDataClass.h"; path = "../Todo+CoreDataClass.h"; sourceTree = "<group>"; };
+		7751AC8F1E8C53170032189A /* Todo+CoreDataClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "Todo+CoreDataClass.m"; path = "../Todo+CoreDataClass.m"; sourceTree = "<group>"; };
+		7751AC901E8C53170032189A /* Todo+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Todo+CoreDataProperties.h"; path = "../Todo+CoreDataProperties.h"; sourceTree = "<group>"; };
+		7751AC911E8C53170032189A /* Todo+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "Todo+CoreDataProperties.m"; path = "../Todo+CoreDataProperties.m"; sourceTree = "<group>"; };
 		DAFA24FD1E6751D700C87CE4 /* EveryDoAgain.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EveryDoAgain.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DAFA25011E6751D700C87CE4 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		DAFA25031E6751D700C87CE4 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -66,20 +70,14 @@
 		DAFA24FF1E6751D700C87CE4 /* EveryDoAgain */ = {
 			isa = PBXGroup;
 			children = (
-				DAFA25031E6751D700C87CE4 /* AppDelegate.h */,
-				DAFA25041E6751D700C87CE4 /* AppDelegate.m */,
 				DAFA25091E6751D700C87CE4 /* MasterViewController.h */,
 				DAFA250A1E6751D700C87CE4 /* MasterViewController.m */,
 				DAFA250C1E6751D700C87CE4 /* DetailViewController.h */,
 				DAFA250D1E6751D700C87CE4 /* DetailViewController.m */,
-				DAFA250F1E6751D700C87CE4 /* Main.storyboard */,
-				DAFA25121E6751D700C87CE4 /* Assets.xcassets */,
-				DAFA25141E6751D700C87CE4 /* LaunchScreen.storyboard */,
-				DAFA25171E6751D700C87CE4 /* Info.plist */,
-				DAFA25061E6751D700C87CE4 /* EveryDoAgain.xcdatamodeld */,
-				DAFA25001E6751D700C87CE4 /* Supporting Files */,
 				DAFA251D1E675FF300C87CE4 /* AddNewTaskViewController.h */,
 				DAFA251E1E675FF300C87CE4 /* AddNewTaskViewController.m */,
+				DAFA250F1E6751D700C87CE4 /* Main.storyboard */,
+				DAFA25001E6751D700C87CE4 /* Supporting Files */,
 			);
 			path = EveryDoAgain;
 			sourceTree = "<group>";
@@ -87,6 +85,16 @@
 		DAFA25001E6751D700C87CE4 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				7751AC8E1E8C53170032189A /* Todo+CoreDataClass.h */,
+				7751AC8F1E8C53170032189A /* Todo+CoreDataClass.m */,
+				7751AC901E8C53170032189A /* Todo+CoreDataProperties.h */,
+				7751AC911E8C53170032189A /* Todo+CoreDataProperties.m */,
+				DAFA25031E6751D700C87CE4 /* AppDelegate.h */,
+				DAFA25041E6751D700C87CE4 /* AppDelegate.m */,
+				DAFA25121E6751D700C87CE4 /* Assets.xcassets */,
+				DAFA25061E6751D700C87CE4 /* EveryDoAgain.xcdatamodeld */,
+				DAFA25141E6751D700C87CE4 /* LaunchScreen.storyboard */,
+				DAFA25171E6751D700C87CE4 /* Info.plist */,
 				DAFA25011E6751D700C87CE4 /* main.m */,
 			);
 			name = "Supporting Files";

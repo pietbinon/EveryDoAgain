@@ -2,8 +2,8 @@
 //  MasterViewController.h
 //  EveryDoItAgain
 //
-//  Created by Hyung Jip Moon on 2017-03-01.
-//  Copyright © 2017 leomoon. All rights reserved.
+//  Created by Pierre Binon on 2017-03-29.
+//  Copyright © 2017 Pierre Binon. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
@@ -13,13 +13,12 @@
 
 @class DetailViewController;
 
+
+
 @interface MasterViewController : UITableViewController <NSFetchedResultsControllerDelegate>
 
 @property (strong, nonatomic) DetailViewController *detailViewController;
-
 @property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
 @property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
 
-
 @end
-
